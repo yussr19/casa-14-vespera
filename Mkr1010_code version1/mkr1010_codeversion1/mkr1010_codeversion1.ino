@@ -1,3 +1,4 @@
+
 // Duncan Wilson Oct 2025 - v1 - MQTT messager to vespera
 
 // works with MKR1010
@@ -44,8 +45,8 @@ const int payload_size = num_leds * 3; // x3 for RGB
 byte RGBpayload[payload_size];
 
 // -------------  MUSIC PEAK DETECTION VARIABLES -------------
-int soundPin = A2;                         // Grove Sound Sensor connected to A2
-int musicPeakThreshold = 250;              // Adjust to match your music volume (start ~250)
+int soundPin = A2;                         //  Sound Sensor connected to A2
+int musicPeakThreshold = 250;              // 
 unsigned long lastPeakTime = 0;            // Time of last detected peak
 bool peakDetected = false;                 // Prevents multiple triggers for the same beat
 int currentColor = 0;                      // Tracks which color to display next
@@ -88,17 +89,16 @@ void loop() {
   // keep mqtt alive
   mqttClient.loop();
 
-  // --- 1. Read the sound sensor ---
+  //  Read the sound sensor 
   int soundValue = analogRead(soundPin);
    Serial.print("Sound: ");
    Serial.print(soundValue);
    Serial.print(" : ");
    Serial.println(peakDetected);
-
-  // --- 2. Detect a music peak (above threshold) ---
+  //  Detect a music peak (above threshold) 
   if (soundValue > musicPeakThreshold && !peakDetected && millis() - lastPeakTime > 150) {
     peakDetected = true;                     // flag so it doesn't trigger again immediately
-    lastPeakTime = millis();                 // store the time of detection
+   lastPeakTime = millis();                 // store the time of detection
     currentColor = (currentColor + 1) % 6;   // cycle through colors
     Serial.println("Music peak detected");
     changeLightColor(currentColor);          // update LEDs and publish via MQTT
@@ -109,7 +109,7 @@ void loop() {
     peakDetected = false;
   }
 
-  delay(50); // small pause to smooth readings (20 Hz)
+  delay(50); // small pause to smooth readings 
 
 }
 // Change LED color and publish over MQTT
