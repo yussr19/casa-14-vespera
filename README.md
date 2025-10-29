@@ -67,7 +67,7 @@ The Vesprea light instulation should change colors after it detects any sound th
 **Sound Detection**
 
 
-The grove sensor uses an anaglong microphone that is desinged  to detect the loudness of the audio in the sensors environment. This is then outputed via an analog signal . The sensor kit recommends the use of noises such as clapping or knocking to illustarte how the sensor detects loud noises.
+The grove sensor uses an analong microphone that is desinged  to detect the loudness of the audio in the sensors environment. This is then outputed via an analog signal . The sensor kit recommends the use of noises such as clapping or knocking to illustarte how the sensor detects loud noises.
 ![Grove - Sound Sensor v1 6 Schematic](https://github.com/user-attachments/assets/501d5230-80c3-4c43-87f4-45274247b81d)
 
 Essentially, this sensor picks up any sound above a threshold.  When the microphone in the sensor detects a loud sound, such as a clap, it detects it well. However, when the loud sound is repeated, such as 5 claps in a row , the sensor will sense them all but only react to 2 out of 5 of the claps.  I belive this is because when the sensor is exposed to mutiples of the same loud nosie even if all of the noises excced the sound threshold, it only reacts to the peaks or the highest noise produced. The sensor often detects the quieter sounds but does not produce an output for them. 
