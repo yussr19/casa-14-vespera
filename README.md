@@ -1,4 +1,4 @@
-**Immersive music and light experince IOT project** 
+**Immersive music and light experience IOT project** 
 
 
 -IOT project  prototype that allows light to react to music
